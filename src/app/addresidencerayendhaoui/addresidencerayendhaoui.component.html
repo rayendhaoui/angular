@@ -1,0 +1,24 @@
+<h2>Ajouter une nouvelle résidence</h2>
+<form (ngSubmit)="onSubmit()" #resForm="ngForm">
+  <div>
+    <label>Nom:</label>
+    <input type="text" name="name" [(ngModel)]="residence.name" required />
+  </div>
+  <div>
+    <label>Adresse:</label>
+    <input type="text" name="address" [(ngModel)]="residence.address" required />
+  </div>
+  <div>
+    <label>Image URL:</label>
+    <input type="text" name="image" [(ngModel)]="residence.image" />
+  </div>
+  <div>
+    <label>Statut:</label>
+    <input type="text" name="status" [(ngModel)]="residence.status" required />
+  </div>
+  <div *ngIf="error" class="error">{{ error }}</div>
+  <button type="submit" [disabled]="submitting || resForm.invalid">
+    {{ submitting ? 'Envoi...' : 'Ajouter' }}
+  </button>
+  <button type="button" (click)="router.navigate(['/list'])">Annuler</button>
+</form>

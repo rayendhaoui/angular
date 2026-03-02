@@ -1,0 +1,11 @@
+<div *ngIf="loading">Chargement...</div>
+<div *ngIf="error" class="error">{{ error }}</div>
+<div *ngIf="residence">
+  <h2>Détails de la résidence</h2>
+  <p><strong>Nom :</strong> {{ residence.name }}</p>
+  <p><strong>Adresse :</strong> {{ residence.address }}</p>
+  <p><strong>Statut :</strong> {{ residence.status }}</p>
+  <img *ngIf="residence.image" [src]="residence.image" alt="Image de la résidence" width="300" />
+  <br />
+  <button (click)="goBack()">Retour à la liste</button>
+</div>
